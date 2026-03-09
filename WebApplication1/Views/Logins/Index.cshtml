@@ -1,0 +1,127 @@
+﻿@model IncidentProject.Models.UserRequest
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Jubilee Life Incident Form</title>
+    <link rel="stylesheet" href="~/vendors/feather/feather.css">
+    <link rel="stylesheet" href="~/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/vendors/css/vendor.bundle.base.css">
+
+    <link rel="stylesheet" href="~/css/vertical-layout-light/style.css">
+    <link rel="shortcut icon" href="~/images/Jubilee_real_logo.png" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+
+
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="brand-logo" style="text-align:center">
+                                <img src="" alt="logo">
+                            </div>
+
+                            <h6 class="font-weight-light" style="text-align:center">Sign in to continue.</h6>
+                            <div class="select-role">
+                                <div class="login-title" style="padding-bottom:0px!important">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" id="txtusername" placeholder="Enter Staff Email">
+                            </div>
+                            <div id="loginCred">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label" for="password">Password</label>
+                                    <a href="#" id="forgotpass">
+                                        <small>Forgot Password?</small>
+                                    </a>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" id="txtpassword" placeholder="Password">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group mb-0">
+                                            <a id="btnLogin" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            @*forgotpass*@
+                            <div id="forgotpassword" style="display:none">
+                                <div class="mb-3">
+                                    <button id="btnForgotpass" class="btn btn-primary d-grid w-100" type="submit">Password Reset</button>
+                                </div>
+                            </div>
+                            @*changepassword*@
+                            <div id="changePassword" style="display:none">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">New Password</label>
+                                    <input type="password"
+                                           class="form-control"
+                                           id="NewPassword"
+                                           name="NewPassword"
+                                           placeholder="Enter New Password"
+                                           autofocus />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Confirm Password </label>
+                                    <input type="password"
+                                           class="form-control"
+                                           id="ComfirmNewPassword"
+                                           name="ComfirmNewPassword"
+                                           placeholder="Confirm Password "
+                                           autofocus />
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <button class="btn btn-primary d-grid w-100 passchange" type="submit">Change Password</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+
+
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+    <script src="~/js/template.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>
+    <script src="~/js/mainsite.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>

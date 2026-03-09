@@ -1,0 +1,175 @@
+﻿@*@model ICollection<IncidentProject.Models.TicketSummary>*@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:0px!important">Dashboard</h4>
+        </div>
+    </div>
+</div>
+
+@*Tickets summary*@
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title mb-0">Ticket Summary</p>
+            <hr />
+            <div class="table-responsive">
+                <table id="TicketSummary" class="table table-striped table-borderless">
+                    <thead> <tr><th>Status</th><th>Ticket Number</th> </tr> </thead>
+                </table>
+                <hr />
+                <table id="TicketCount" class="table table-striped table-borderless">
+                    @* <thead> <tr><th>Total</th><th>Count</th> </tr> </thead>*@
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*customer sources*@
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title mb-0">Customer sources</p>
+            <hr />
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+        </div>
+    </div>
+</div>
+
+
+@*Tickets by branch*@
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title mb-0">Tickets by branch</p>
+            <hr />
+            <canvas id="myBarChart" style="width:100%;max-width:600px"></canvas>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title mb-0">Latest Tickets</p>
+            <hr />
+            <div class="table-responsive">
+                <table id="LatestTicket" class="table table-striped table-borderless">
+                    <thead> <tr><th>AccountNo</th><th>Branch</th> <th>Category</th><th>Complain Type</th><th>Registered Date</th><th>Description</th><th>Status</th></tr> </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+
+
+            @*AcctNo*@
+            <div class="form-group">
+                <p class="card-title mb-0">Check Customer Ticket History</p>
+                <hr />
+                @*   <label>AccountNo</label>*@
+                <input type="text" class="form-control" id="AccountNoForTicket" maxlength="10" name="AccountNoForTicket" placeholder="Enter AccountNo" />
+                @*<input type="hidden" id="txtcustId">*@
+            </div>
+
+            @* record*@
+            <div class="form-group" style="overflow:auto" id="AcctHistoryTable">
+                <table id="customerDatatable" class="table table-striped table-borderless">
+                    <thead> <tr><th>AccountNo</th><th>Branch</th><th>Category</th> <th>ComType</th><th>Status</th><th>Title</th><th>Description</th></tr> </thead>
+                </table>
+            </div>
+
+            @*<div class="row" id="productTab"> </div>*@
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal pay_bill" role="dialog">
+    <div class="modal-dialog modal-xl">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>*@
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-6">
+                            <h3>Attachments</h3>
+                            <hr />
+                            <div id="target">
+                                <iframe src="" style="width:100%; height:300px"></iframe>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-6">
+                            <div class="col-md-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        @*<div id="target">
+                                            <iframe src="" style="width:100%; height:300px"></iframe>
+
+                                        </div>*@
+                                        @*AcctNo*@
+                                        <div class="form-group">
+                                            <label>AccountNo</label>
+                                            <input type="text" class="form-control" readonly id="upAccountNo" name="upAccountNo" maxlength="10" placeholder="Enter AccountNo" required />
+                                            <input type="hidden" class="form-control" id="IncTicketNo" name="IncTicketNo" maxlength="10" placeholder="Enter AccountNo" required />
+
+                                        </div>
+                                        @*status*@
+                                        <div class="form-group" style="width:100%">
+                                            <label>Status</label><br />
+                                            <select class="form-control" id="statusId" required>
+
+                                                <option value=""></option>
+                                                <option value="PROCESSING">PROCESSING</option>
+                                                <option value="ON-HOLD">ON-HOLD</option>
+                                                <option value="CLOSED">CLOSED</option>
+
+
+                                            </select>
+
+                                        </div>
+
+                                        @*Reason*@
+                                        <div class="form-group">
+                                            <label>Comments</label>
+                                            <input type="text" class="form-control" id="comments" name="comments" placeholder="Enter Comments" required />
+
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-primary mr-2" id="btnUpdate">Update</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

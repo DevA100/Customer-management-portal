@@ -1,0 +1,48 @@
+﻿# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build folders
+bin/
+obj/
+
+# Logs
+*.log
+
+# Windows files
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Node modules
+node_modules/
+
+# Environment configs
+appsettings.Development.json
+appsettings.Local.json
+
+# Publish folder
+publish/
+
+# NuGet packages
+packages/
+
+# Temporary files
+*.tmp
+*.cache
+
+# Ignore root JS folder (too large)
+/js/
+
+# Ignore vendor folder under wwwroot
+wwwroot/vendor/
+# Environment configs
+appsettings.json

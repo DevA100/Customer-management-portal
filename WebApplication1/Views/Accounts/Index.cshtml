@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+
+
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:0px!important">Customer Incident Request Form</h4>
+        </div>
+    </div>
+</div>
+
+
+
+<form class="col-md-12" enctype="multipart/form-data" method="post" asp-controller="Accounts" asp-action="SaveCustomerInformation">
+
+   
+    <div class="container">
+  <div style="float:left; background-color:white; border-radius:50px; margin-right:20px;" >
+        
+
+        <div class="card">
+            <div class="card-body">
+
+
+                <div class="form-group">
+                    <label>Select Category</label><br />
+                    <select class="js-example-basic-single form-control" id="category" name="Category" required>
+
+                        <option value=""></option>
+                        <option value="Walk-in">Walk-in</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Email">Email</option>
+
+                    </select>
+                </div>
+
+                @*AcctNo*@
+                <div class="form-group">
+                    <label>AccountNo</label>
+                    <input type="text" class="form-control" id="AccountNo" name="AccountNo" maxlength="10" placeholder="Enter AccountNo" required />
+
+                </div>
+
+                @* branch*@
+                <div class="form-group">
+                    <label>Select Branch</label><br />
+                    <select class="js-example-basic-single form-control" id="branch" name="Branch" required>
+
+                        <option value=""></option>
+                        <option value="AdeolaHopewell">Adeola Hopewell</option>
+                        <option value="Camp">Camp</option>
+                        <option value="Ogba">Ogba</option>
+                        <option value="OkoOba">Oko Oba</option>
+                        <option value="Abuja">Abuja</option>
+                        <option value="PHC">Port Harcourt</option>
+
+                    </select>
+                </div>
+                @* complaintType*@
+                <div class="form-group">
+                    <label>Complaint Type</label><br />
+                    <select class="js-example-basic-single form-control" id="complaintType" name="ComType" required>
+
+                        <option value=""></option>
+                        <option value="BillPaymentReversal">Bill Payment Reversal</option>
+                        <option value="TransactionPrcoseeingInquiry">TransactionPrcoseeingInquiry</option>
+                        <option value="ConfirmTransactionStatus">Confirm Transaction Status</option>
+                        <option value="InvestigateFailedTransaction">Investigate Failed Transaction</option>
+                        <option value="PaymentConfirmation">PaymentConfirmation</option>
+                        <option value="InvestigateFailedTransaction">Investigate Failed Transaction</option>
+                        <option value="POSIssues">POS Issues</option>
+                        <option value="Fraud&DisputeIssue">Fraud & Dispute Issue</option>
+                        <option value="UnableToCompleteTransaction">Unable To Complete Transaction</option>
+                        <option value="UnableToAccessUSSD">Unable To Access USSD</option>
+                        <option value="AccountOpeningInquiry">Account Opening Inquiry</option>
+                        <option value="AccountActivationIssues">Account Activation Issues</option>
+                        <option value="ChallengesWithAccount">Challenges With Account</option>
+                        <option value="UnableToAccessInternetBanking">UnableToAccessInternetBanking</option>
+                        <option value="ChallengeWithMobileOnboarding">Challenge With Mobile Onboarding</option>
+                        <option value="RequestForReversal">Request For Reversal</option>
+                        <option value="CardRequest">Card Request</option>
+                        <option value="PerformanceIssue">Performance Issue(Slow, Timing Out)</option>
+                        <option value="UnableToAccessApp">Unable To Access App</option>
+                        <option value="UnlockAccount">Unlock Account</option>
+                        <option value="HardwareIssue">Hardware Issue</option>
+                        <option value="LocalDispenseError">Local Dispense Error</option>
+                        <option value="TransferInstruction">Transfer Instruction</option>
+                        <option value="RemitaIssue">Remita Issue</option>
+                        <option value="TransferIssue-jubilee">Transfer Issue - Jubilee</option>
+                        <option value="TransferIssue-NIP">TransferIssue - NIP</option>
+                        <option value="AirtimePaymentReversal">Airtime Payment Reversal</option>
+                        <option value="Changeofsignatories">Change Of Signatories</option>
+                        <option value="Reactivation">Reactivation</option>
+                        <option value="BVNRelatedIssues">BVN Related Issues</option>
+                        <option value="PasswordIssue">Password Issue</option>
+                        <option value="OTP Issues">OTP Issues</option>
+                        <option value="SMS/EmailAlertIssues">SMS/Email Alert Issues</option>
+                        <option value="StatementReconciliation">Statement Reconciliation</option>
+                        <option value="HostListingOfCard">Host Listing Of Card</option>
+                        <option value="E-statement">E-statement</option>
+
+                    </select>
+                </div>
+                @* title*@
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" id="Title" name="Title" placeholder="Enter Title" required />
+
+                </div>
+
+                @* description*@
+                <div class="form-group">
+                    <label for="exampleTextarea1">Description</label>
+                    <textarea class="form-control" id="description" name="Description" rows="4" required></textarea>
+                </div>
+
+                @*attachment*@
+                <div class="form-group">
+                    <label for="exampleTextarea1">Attach Document if any</label><br />
+
+                    <input id="FormFile" name="FormFile" type="file" onchange="encodeImgtoBase64(this)" class="form-control" data-preview-file-type="text">
+                    @* <input type="file" name="image" id="image" onchange="encodeImgtoBase64(this)">*@
+                </div>
+                <div class="form-group">
+                    @{
+                        var message = ViewBag.message;
+                        //var message = "";
+                        //message = TempData["Message"] as string;
+
+                        if (message == "")
+                        {
+                            <div style="color:red"> @message </div>
+                        }
+                        else
+                        {
+                            <div style="color:green"> @message </div>
+                        }
+                    }
+
+
+                </div>
+                <button type="submit" class="btn btn-primary mr-2" id="btnSubmit2">Submit</button>
+            </div>
+
+        </div>
+    </div>
+    @*   </div>
+
+        </div>*@
+
+    @*Auto populated controls*@
+    <div id="AutoPopulatedControl"  >
+        <div class="card col-md-5">
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="Name" name="AccountName" readonly />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" id="Email" name="Email" readonly />
+
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" class="form-control" id="Phone" name="Phone" readonly />
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</form>
+
+
+@* </form>*@
+
+
+
+

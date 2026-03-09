@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:0px!important">Customer Incident Request Form</h4>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label>Select Category</label><br />
+                <select class="js-example-basic-single w-100">
+
+                    <option value=""></option>
+                    <option value="Walkin">Walkin</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Email">Email</option>
+
+                </select>
+            </div>
+
+            @*AcctNo*@
+            <div class="form-group">
+                <label>AccountNo</label>
+                <input type="text" class="form-control" id="AccountNo" name="AccountNo" placeholder="Enter AccountNo" />
+
+            </div>
+
+            @* branch*@
+            <div class="form-group">
+                <label>Select Branch</label><br />
+                <select class="js-example-basic-single w-100">
+
+                    <option value=""></option>
+                    <option value="AdeolaHopewell">Adeola Hopewell</option>
+                    <option value="Camp">Camp</option>
+                    <option value="Ogba">Ogba</option>
+                    <option value="OkoOba">Oko Oba</option>
+
+                </select>
+            </div>
+            @* complaintType*@
+            <div class="form-group">
+                <label>Complaint Type</label><br />
+                <select class="js-example-basic-single w-100">
+
+                    <option value=""></option>
+                    <option value="Card">Card</option>
+                    <option value="USSD">USSD</option>
+                    <option value="IMBanking">Internal/MobileBanking</option>
+                    <option value="AcctInfoUpdate">Account Info Update</option>
+
+                </select>
+            </div>
+            @* title*@
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" id="Title" name="Title" placeholder="Enter Title" />
+
+            </div>
+
+            @* description*@
+            <div class="form-group">
+                <label for="exampleTextarea1">Description</label>
+                <textarea class="form-control" id="description" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+
+        </div>
+    </div>
+</div>
+
+@*Auto populated controls*@
+<div class="col-md-6 " id="AutoPopulatedControl">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" id="Name" name="Name" readonly />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" id="Email" name="Email" readonly />
+
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" id="Phone" name="Phone" readonly />
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

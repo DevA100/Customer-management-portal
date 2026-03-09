@@ -1,0 +1,84 @@
+﻿@model IEnumerable<IncidentProject.Models.UserRequest>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @* <h4 style="padding:0px!important">Open Tickets</h4>*@
+            <a class="btn btn-rounded" style="font-weight: bold;">Open Tickets</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div>
+                <a class="btn btn-success" id="ExportOpenTicketToExcel">Export To Excel</a>
+                <a class="btn btn-rounded">Export To PDF</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Open Tickets*@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+
+            <div class="form-group" style="overflow:auto">
+                <table id="GetopenTickets">
+                    <thead>
+                        <tr>
+                            <th>
+                                S/No
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.staffemail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.name)
+                            </th>
+                             <th>
+                                @Html.DisplayNameFor(model => model.status)
+                            </th>
+               
+                             <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int x = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            x = x + 1;
+                            <tr>
+                                <td>
+                                    @x
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.staffemail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                                 
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,146 @@
+﻿@model IEnumerable<IncidentProject.Models.CustomerModel>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:0px!important">Ticket List</h4>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+          <div>
+                    <a class="btn btn-success" id="ExportTicketListToExcel">Export To Excel</a>
+                    @* <a class="btn btn-rounded">Export To PDF</a>*@
+                </div>
+        </div>
+    </div>
+</div>
+
+@*Open Tickets*@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+
+            <div class="form-group" style="overflow:auto">
+                
+                <table id="GetTicketList" style="font-size:12px; font-weight:600; color:black">
+                   <thead>
+                        <tr>
+                            <th>
+                                S/No
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Category)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TicketNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AccountNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AccountName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Branch)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ComType)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.Title)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateLogged)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateAssignedForProcessing)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateClosed)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                             <th>
+                                @Html.DisplayNameFor(model => model.Comments)
+                            </th>
+                             @*<th>
+                                @Html.DisplayNameFor(model => model.LoggedInUser)
+                            </th>*@
+                           @* <th></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                         @{
+                            int x = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            x = x + 1;
+                            <tr>
+                                <td>
+                                    @x
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TicketNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccountName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Branch)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ComType)
+                                </td>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateLogged)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateAssignedForProcessing)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateClosed)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>   
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comments)
+                                </td>   
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.LoggedInUser)
+                                </td>  *@ 
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
